@@ -15,7 +15,6 @@ var data = {
     race: loadData('race')
 };
 
-/* GET home page. */
 function getCharacter(req, res, next){
     var firstTraining = pick(_.keys(data.trainings));
     var secondTraining = weightedPick(data.trainings[firstTraining]);
@@ -44,10 +43,8 @@ function getCharacter(req, res, next){
         qualities: qualities
     }
     console.log(JSON.stringify(doc, null, 2));
-    //res.json(doc);
     res.render('index', { title: 'Crossover Character Generator', data:doc });
 }
-
 
 var router = express.Router();
 router.get('/', getCharacter);
