@@ -1,0 +1,26 @@
+{
+    "Healer": {
+        "80": "Healer",
+        "90": "Adept",
+        "95": "Warrior",
+        "100": "Skirmisher"
+    },
+    "Adept": {
+        "80": "Adept",
+        "90": "Healer",
+        "95": "Warrior",
+        "100": "Skirmisher"
+    },
+    "Warrior": {
+        "75": "Warrior",
+        "85": "Healer",
+        "95": "Adept",
+        "100": "Skirmisher"
+    },
+    "Skirmisher": {
+        "75": "Skirmisher",
+        "85": "Healer",
+        "95": "Adept",
+        "100": "Warrior"
+    }
+}
