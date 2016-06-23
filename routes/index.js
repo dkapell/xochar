@@ -141,7 +141,7 @@ function pick(list, value){
 function weightedPick(list){
     var val = Math.floor(Math.random() * 100)+1;
     var keys = _.keys(list);
-    keys = keys.map(function(e) { return Number(e)})
+    keys = keys.map(function(e) { return Number(e)});
     for (var i = 0; i < keys.length; i++){
         if (Number(keys[i]) >= val){
             return list[keys[i]];
