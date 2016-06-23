@@ -12,7 +12,8 @@ var data = {
     animals: loadData('animals'),
     monsters: loadData('monsters'),
     plants: loadData('plants'),
-    race: loadData('race')
+    race: loadData('race'),
+    objects: loadData('objects')
 };
 
 function getCharacter(req, res, next){
@@ -25,13 +26,19 @@ function getCharacter(req, res, next){
 
     requireDark = false;
 
-    _.each(themes, function(theme){
+    themes = themes.map(function(theme){
         if (_.has(data.themes[theme], "darkQuality") && data.themes[theme].darkQuality){
             requireDark = true;
         }
         if (_.has(data.themes[theme], "racialModifier") && data.themes[theme].racialModifier){
             race = theme + ': ' + race;
         }
+        if (_.has(data.themes[theme], "hasTreasure") && data.themes[theme].hasTreasure){
+            var object = pick(data.objects.objects);
+            theme += ': ' + capitalizeFirstLetter(object);
+
+        }
+        return theme;
     });
 
     var qualities = getQualities(requireDark);
@@ -39,7 +46,7 @@ function getCharacter(req, res, next){
     var doc = {
         race: race,
         training: prettyPrintTraining(firstTraining, secondTraining),
-        themes: [ firstTheme, secondTheme],
+        themes: themes,
         qualities: qualities
     }
     console.log(JSON.stringify(doc, null, 2));
@@ -66,12 +73,18 @@ function getQualities (requireDark){
     } while (requireDark === true && qualityDistro.Dark === 0);
 
     var qualities = [];
+    var darkQualities = []
     for (var i = 0; i < qualityDistro.Heroic; i++){
         qualities.push(pick(data.qualities.Heroic, qualities));
     }
     for (var i = 0; i < qualityDistro.Dark; i++){
-        qualities.push(pick(data.qualities.Dark, qualities) + ' (Dark)');
+        darkQualities.push(pick(data.qualities.Dark, darkQualities) );
     }
+
+    _.each(darkQualities, function(quality){
+        qualities.push( quality + ' (Dark)');
+    });
+
     return qualities;
 }
 
