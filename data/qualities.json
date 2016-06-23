@@ -58,7 +58,7 @@
         "Vanity"
     ],
     "Ratios": {
-        "60" : {"Heroic": 3, "Dark": 0 },
+        "65" : {"Heroic": 3, "Dark": 0 },
         "85" : {"Heroic": 2, "Dark": 1 },
         "95" : {"Heroic": 1, "Dark": 2 },
         "100": {"Heroic": 0, "Dark": 3 }

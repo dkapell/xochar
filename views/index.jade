@@ -3,13 +3,12 @@ extends layout
 block content
   h1= title
 
-  p Race: #{data.race}
-  p Training: #{data.training}
-  p Themes:
-  ul
-    each val in data.themes
-        li= val
-  p Qualities:
-  ul
-    each val in data.qualities
-        li= val
+  p
+  | <strong>Race:</strong> #{data.race}
+  br
+  | <strong>Training:</strong> #{data.training}
+  br
+  | <strong>Themes:</strong> #{data.themes.join(', ')}
+  br
+  | <strong>Qualities:</strong> #{data.qualities.join(', ')}
+
