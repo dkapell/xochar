@@ -35,3 +35,22 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Mac crap
+.DS_Store
+
+# app specific
+output
+doc/scratchspace
+data
+public/javascripts/bundles
+public/javascripts/templates
+public/images/generated
+scripts/devtests
+credentials
+ritual-logo.pdf
+doc/generated
+players.txt
+playerlist.csv
+tiles-color.pdf
+tiles.pdf
